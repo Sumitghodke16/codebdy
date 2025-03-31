@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.content {
+    text-align: center;
+    z-index: 10;
+    position: relative;
+}
+
+.message {
+    color: #ff4081;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    position: relative;
+}
+
+.fade-image {
+    width: 150px; /* Medium size for the images */
+    height: 200px;
+    object-fit: cover;
+    border: 5px solid #ff4081;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    visibility: hidden;
+}
+
+/* Fireworks Animation */
+.fireworks-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 150vh;
+    background-image: url('https://media.giphy.com/media/Hh9sPYeSWhAUx6NDBM/giphy.gif?cid=ecf05e47h9maq3oso6ks4zog6pevlxqcmg8dn1bkihwtmkw1&ep=v1_gifs_search&rid=giphy.gif&ct=g');
+    background-size: cover;
+    z-index: -1; /* Send fireworks behind the content */
+    animation: fireworks-animation 3s ease-in-out infinite;
+}
+
+/* Keyframes for Fireworks Animation */
+@keyframes fireworks-animation {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Show Image with .visible class */
+.fade-image.visible {
+    visibility: visible;
+    opacity: 1;
+}
